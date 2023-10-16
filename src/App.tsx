@@ -38,7 +38,7 @@ const App = () => {
         display: "flex",
         justifyContent: "space-around",
         mt: 5,
-
+        alignItems: "center"
       }}>
         <Box><MenuListApp /></Box>
         <Box>
