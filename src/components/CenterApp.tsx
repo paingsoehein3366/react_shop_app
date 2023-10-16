@@ -15,7 +15,8 @@ interface Prop {
     description: string,
     price: number,
     images: [0],
-    category: string
+    category: string,
+    thumbnail: string,
 }
 
 const CenterApp = () => {
@@ -36,8 +37,7 @@ const CenterApp = () => {
     const Title = productData.map(item => item.title);
     const Description = productData.map(item => item.description);
     const Image = productData.map(item => item.images[0].toString());
-
-
+    const Thumbnail = productData.map(item => item.thumbnail);
     return (
         <Box>
             <Box sx={{
@@ -48,18 +48,18 @@ const CenterApp = () => {
             }}>
                 <ImageList sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                     <Box sx={{ display: "flex", alignItems: "center" }}>
-                        <img src={Image[6]} alt="" />
+                        <img src={changeComputerPhotoValue.Image} alt="" />
                     </Box>
                     <Box>
                         <img
                             onClick={() => {
-                                setChangeComputerPhotoValue({ Image: Image[6] })
+                                setChangeComputerPhotoValue({ Image: Thumbnail[7] })
                             }}
                             style={{
                                 width: 150,
                                 cursor: "pointer"
                             }}
-                            src={Image[6]} alt="" />
+                            src={Thumbnail[7]} alt="" />
                         <img
                             onClick={() => {
                                 setChangeComputerPhotoValue({ Image: GalaxyBookPro })
