@@ -37,6 +37,9 @@ const CenterApp = () => {
     const Title = productData.map(item => item.title);
     const Description = productData.map(item => item.description);
     const Thumbnail = productData.map(item => item.thumbnail);
+    const Buy = () => {
+        alert("ဖေသာလဲ ဟိစွာမဟုတ် စစွာန :)")
+    }
     return (
         <Box>
             <Box sx={{
@@ -84,7 +87,7 @@ const CenterApp = () => {
                         fontFamily: "Arial",
                         fontSize: { xs: 11, sm: 13, md: 15, lg: 16 }
                     }}>{Description[6]}</Typography>
-                    <Button sx={{ mt: 2 }} variant="contained" color="warning">buy</Button>
+                    <Button onClick={Buy} sx={{ mt: 2 }} variant="contained" color="warning">buy</Button>
                 </ImageList>
                 <ImageList sx={{
                     display: "flex",
@@ -117,7 +120,7 @@ const CenterApp = () => {
                         fontFamily: "Arial",
                         fontSize: { xs: 11, sm: 13, md: 15, lg: 16 }
                     }}>{Description[1]}</Typography>
-                    <Button sx={{ mt: 2 }} variant="contained" color="warning">buy</Button>
+                    <Button onClick={Buy} sx={{ mt: 2 }} variant="contained" color="warning">buy</Button>
                 </ImageList>
             </Box>
         </Box>

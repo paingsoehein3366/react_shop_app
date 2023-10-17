@@ -15,7 +15,7 @@ const CreateAccoutApp = () => {
     return (
         <Box>
             <Box sx={{ display: { xs: "flex", sm: "none" } }}>
-                <Link to={"/"} style={{
+                <Link to={"/menus"} style={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "end",
