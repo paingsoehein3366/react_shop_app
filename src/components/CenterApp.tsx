@@ -38,7 +38,7 @@ const CenterApp = () => {
     const Description = productData.map(item => item.description);
     const Thumbnail = productData.map(item => item.thumbnail);
     const Buy = () => {
-        alert("ဖေသာလဲ ဟိစွာမဟုတ် စစွာန :)")
+        alert("ဝယ်နိုင်စွာလေး မဟုတ်ဝေး နိုင်လေး buyခလုတ်ကိုဖိမနေကပ် စစွာန😂");
     }
     return (
         <Box>
