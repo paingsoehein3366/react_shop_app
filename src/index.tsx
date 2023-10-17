@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ResultMenu from './components/ResultMenu';
 import LoadingApp from './components/LoadingApp';
+import MenusApp from './components/MenusApp';
+import LoginApp from './components/LoginApp';
+import CreateAccoutApp from './components/CreateAccoutApp';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +22,18 @@ const router = createBrowserRouter([
   {
     path: "/loading",
     element: <LoadingApp />
+  },
+  {
+    path: "/menus",
+    element: <MenusApp />
+  },
+  {
+    path: "/login",
+    element: <LoginApp />
+  },
+  {
+    path: "/createAccout",
+    element: <CreateAccoutApp />
   }
 ])
 

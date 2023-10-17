@@ -1,13 +1,12 @@
 import { Box, Button, ImageList, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import LoadingApp from "./LoadingApp";
 import iphone14 from "../iPhone14.webp";
 import iphone14C from "../14Purple4_900x.jpeg";
 import iphone14EndPhoto from "../iphone14EndPhoto.jpeg";
 import GalaxyBookPro from "../samsungGalaxyBook.jpeg";
 import Galaxy_Book_Pro360_c3b from "../Galaxy_Book_Pro360_c3b.avif";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Computer from "../computer.jpeg"
 
 interface Prop {
     id: number,
@@ -22,7 +21,8 @@ interface Prop {
 const CenterApp = () => {
     const [productData, setProductData] = useState<Prop[]>([]);
     const [changePhotoValue, setChangePhotoValue] = useState({ Image: iphone14 });
-    const [changeComputerPhotoValue, setChangeComputerPhotoValue] = useState({ Image: "" });
+    const [changeComputerPhotoValue, setChangeComputerPhotoValue] = useState({ Image: Computer });
+    if (!changeComputerPhotoValue.Image) return <LoadingApp />
     const dataFunction = async () => {
         const responeDataJson = await fetch("https://dummyjson.com/products");
         const responeData = await responeDataJson.json();
@@ -36,7 +36,6 @@ const CenterApp = () => {
     }
     const Title = productData.map(item => item.title);
     const Description = productData.map(item => item.description);
-    const Image = productData.map(item => item.images[0].toString());
     const Thumbnail = productData.map(item => item.thumbnail);
     return (
         <Box>
@@ -47,8 +46,8 @@ const CenterApp = () => {
                 textAlign: "center"
             }}>
                 <ImageList sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                    <Box sx={{ display: "flex", alignItems: "center" }}>
-                        <img src={changeComputerPhotoValue.Image} alt="" />
+                    <Box sx={{ display: "flex", alignItems: "center", bgcolor: "green", }}>
+                        <img style={{ width: 300 }} src={changeComputerPhotoValue.Image} alt="" />
                     </Box>
                     <Box>
                         <img
@@ -56,7 +55,7 @@ const CenterApp = () => {
                                 setChangeComputerPhotoValue({ Image: Thumbnail[7] })
                             }}
                             style={{
-                                width: 150,
+                                width: 130,
                                 cursor: "pointer"
                             }}
                             src={Thumbnail[7]} alt="" />
@@ -65,7 +64,7 @@ const CenterApp = () => {
                                 setChangeComputerPhotoValue({ Image: GalaxyBookPro })
                             }}
                             style={{
-                                width: 130,
+                                width: 120,
                                 cursor: "pointer",
                             }}
                             src={GalaxyBookPro} alt="" />
@@ -74,7 +73,7 @@ const CenterApp = () => {
                                 setChangeComputerPhotoValue({ Image: Galaxy_Book_Pro360_c3b })
                             }}
                             style={{
-                                width: 130,
+                                width: 110,
                                 cursor: "pointer",
                             }}
                             src={Galaxy_Book_Pro360_c3b} alt="" />
@@ -85,16 +84,15 @@ const CenterApp = () => {
                         fontFamily: "Arial",
                         fontSize: { xs: 11, sm: 13, md: 15, lg: 16 }
                     }}>{Description[6]}</Typography>
-                    <Button variant="contained" color="warning">buy</Button>
+                    <Button sx={{ mt: 2 }} variant="contained" color="warning">buy</Button>
                 </ImageList>
                 <ImageList sx={{
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-
                 }}>
                     <Box sx={{ display: "flex", alignItems: "center" }}>
-                        <img style={{ width: 400 }} src={changePhotoValue.Image} alt="" />
+                        <img style={{ width: 300 }} src={changePhotoValue.Image} alt="" />
                     </Box>
                     <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                         <img
@@ -102,16 +100,16 @@ const CenterApp = () => {
                                 setChangePhotoValue({ Image: iphone14 })
                             }}
                             style={{
-                                width: 150,
+                                width: 130,
                                 cursor: "pointer",
                             }}
                             src={iphone14} alt="" />
                         <img onClick={() => {
                             setChangePhotoValue({ Image: iphone14C })
-                        }} style={{ width: 120, cursor: "pointer" }} src={iphone14C} alt="" />
+                        }} style={{ width: 110, cursor: "pointer" }} src={iphone14C} alt="" />
                         <img onClick={() => {
                             setChangePhotoValue({ Image: iphone14EndPhoto })
-                        }} style={{ width: 150, marginLeft: 10, cursor: "pointer" }} src={iphone14EndPhoto} alt="" />
+                        }} style={{ width: 130, marginLeft: 10, cursor: "pointer" }} src={iphone14EndPhoto} alt="" />
                     </Box>
                     <Typography sx={{}}>iPhone14</Typography>
                     <Typography sx={{ fontFamily: "Arial", color: "#ED6D03" }}>price : $1000</Typography>
@@ -119,7 +117,7 @@ const CenterApp = () => {
                         fontFamily: "Arial",
                         fontSize: { xs: 11, sm: 13, md: 15, lg: 16 }
                     }}>{Description[1]}</Typography>
-                    <Button variant="contained" color="warning">buy</Button>
+                    <Button sx={{ mt: 2 }} variant="contained" color="warning">buy</Button>
                 </ImageList>
             </Box>
         </Box>
