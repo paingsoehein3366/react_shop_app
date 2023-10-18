@@ -1,4 +1,4 @@
-import { Box, Button, ImageList, Typography } from "@mui/material";
+import { Box, Button, Dialog, DialogContent, DialogContentText, ImageList, Typography } from "@mui/material";
 import { useState } from "react";
 import LoadingApp from "./LoadingApp";
 import iphone14 from "../iPhone14.webp";
@@ -6,7 +6,8 @@ import iphone14C from "../14Purple4_900x.jpeg";
 import iphone14EndPhoto from "../iphone14EndPhoto.jpeg";
 import GalaxyBookPro from "../samsungGalaxyBook.jpeg";
 import Galaxy_Book_Pro360_c3b from "../Galaxy_Book_Pro360_c3b.avif";
-import Computer from "../computer.jpeg"
+import Computer from "../computer.jpeg";
+import NaingLay from "../nainglay.jpeg";
 
 interface Prop {
     id: number,
@@ -19,6 +20,7 @@ interface Prop {
 }
 
 const CenterApp = () => {
+    const [open, setOpen] = useState(false);
     const [productData, setProductData] = useState<Prop[]>([]);
     const [changePhotoValue, setChangePhotoValue] = useState({ Image: iphone14 });
     const [changeComputerPhotoValue, setChangeComputerPhotoValue] = useState({ Image: Computer });
@@ -37,9 +39,7 @@ const CenterApp = () => {
     const Title = productData.map(item => item.title);
     const Description = productData.map(item => item.description);
     const Thumbnail = productData.map(item => item.thumbnail);
-    const Buy = () => {
-        alert("ဝယ်နိုင်စွာလေး မဟုတ်ဝေး နိုင်လေး buyခလုတ်ကိုဖိမနေကပ် စစွာန😂");
-    }
+
     return (
         <Box>
             <Box sx={{
@@ -87,7 +87,7 @@ const CenterApp = () => {
                         fontFamily: "Arial",
                         fontSize: { xs: 11, sm: 13, md: 15, lg: 16 }
                     }}>{Description[6]}</Typography>
-                    <Button onClick={Buy} sx={{ mt: 2 }} variant="contained" color="warning">buy</Button>
+                    <Button onClick={() => setOpen(true)} sx={{ mt: 2 }} variant="contained" color="warning">buy</Button>
                 </ImageList>
                 <ImageList sx={{
                     display: "flex",
@@ -120,9 +120,15 @@ const CenterApp = () => {
                         fontFamily: "Arial",
                         fontSize: { xs: 11, sm: 13, md: 15, lg: 16 }
                     }}>{Description[1]}</Typography>
-                    <Button onClick={Buy} sx={{ mt: 2 }} variant="contained" color="warning">buy</Button>
+                    <Button onClick={() => setOpen(true)} sx={{ mt: 2 }} variant="contained" color="warning">buy</Button>
                 </ImageList>
             </Box>
+            <Dialog open={open} onClose={() => setOpen(false)}>
+                <DialogContent sx={{ display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
+                    <img style={{ width: "80%" }} src={NaingLay} alt="" />
+                    <DialogContentText>ချစ်လား 😂😂😂</DialogContentText>
+                </DialogContent>
+            </Dialog>
         </Box>
     )
 };
