@@ -7,7 +7,7 @@ import iphone14EndPhoto from "../iphone14EndPhoto.jpeg";
 import GalaxyBookPro from "../samsungGalaxyBook.jpeg";
 import Galaxy_Book_Pro360_c3b from "../Galaxy_Book_Pro360_c3b.avif";
 import Computer from "../computer.jpeg";
-import NaingLay from "../nainglay.jpeg";
+import KyawKyi from "../kyawkyi.jpg";
 
 interface Prop {
     id: number,
@@ -125,7 +125,7 @@ const CenterApp = () => {
             </Box>
             <Dialog open={open} onClose={() => setOpen(false)}>
                 <DialogContent sx={{ display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
-                    <img style={{ width: "80%" }} src={NaingLay} alt="" />
+                    <img style={{ width: "80%" }} src={KyawKyi} alt="" />
                     <DialogContentText>ချစ်လား 😂😂😂</DialogContentText>
                 </DialogContent>
             </Dialog>
