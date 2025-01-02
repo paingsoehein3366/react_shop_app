@@ -126,7 +126,7 @@ const CenterApp = () => {
             <Dialog open={open} onClose={() => setOpen(false)}>
                 <DialogContent sx={{ display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
                     {/* <img style={{ width: "80%" }} src={KyawKyi} alt="" /> */}
-                    <DialogContentText>ဖေသာ ရှိလို့လား ဇာဇာလုပ်နေလုပ်နေ 😂😂😂</DialogContentText>
+                    <DialogContentText>ဖေသာ ရှိလို့လား ဇာဇာလုပ်နေ မှုတ်ပစ် 😂😂😂</DialogContentText>
                 </DialogContent>
             </Dialog>
         </Box>
